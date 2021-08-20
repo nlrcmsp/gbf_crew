@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>グラブル団員募集画像ジェネレータ</title>
+    <title>Granblue Fantasy Crew Recruitment Image Generator Ver.1.0.0</title>
     <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -303,19 +303,13 @@
                             }"></v-text>
                             <v-image :config="configFimg"></v-image>
                             <v-image :config="configCimg"></v-image>
-                            <v-text :config="{
-                            x: 365,
-                            y: 983,
-                            text: '団員募集画像ジェネレータ https://gbf.mints.ne.jp/',
-                            fontSize: 14,
-                            fontFamily: 'M PLUS 1p',
-                            fill: baseColor,  
-                            }"></v-text>
+                            <v-text :config="infoText"></v-text>
                         </v-layer>
                     </v-stage>
                 </div>
                 <div class="mt-2 text-end">
-                    <p>Source on <a href="https://github.com/nlrcmsp/gbf_crew" target="blank">Github</a>
+                    <p>Granblue Fantasy Crew Recruitment Image Generator Ver.1.0.0<br>
+                        Source on <a href="https://github.com/nlrcmsp/gbf_crew" target="blank">Github</a>
                     </p>
                 </div>
             </div>
@@ -353,6 +347,7 @@
                 etc: '・ディールは自発者優先\n・ルシH、バブ、ベリアル攻略済、必要な方はキャリー可能\n・一週間ログインなし、古戦場のノルマ未達成時\n　連絡がない場合は強制退団となります',
                 notice: '※入団についてのお問い合わせは、\nTwitterのリプやDMで受け付けています。',
 
+
                 titleImg: titleImg,
                 frameImg: frameImg,
                 centerImg: centerImg,
@@ -374,6 +369,17 @@
                     height: 1000,
                     fill: '#fff',
                 },
+
+                infoText: {
+                    x: 198,
+                    y: 983,
+                    fill: '#aaaaaa',
+                    fontSize: 12,
+                    fontFamily: 'M PLUS 1p',
+                    align: 'right',
+                    text: 'Granblue Fantasy Crew Recruitment Image Generator Ver.1.0.0 https://gbf.mints.ne.jp/',
+                },
+
                 configFimg: {
                     image: frameImg,
                     width: 700,
