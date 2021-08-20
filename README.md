@@ -7,3 +7,15 @@ Granblue Fantasy Crew Recruitment Image Generator
 ## URL
 https://gbf.mints.ne.jp/
 
+## Use Framework & Library
+vue.js
+https://vuejs.org/
+
+konva.js
+https://konvajs.org/
+
+vue konva
+https://github.com/konvajs/vue-konva
+
+bootstrap
+https://getbootstrap.com/
