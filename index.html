@@ -21,16 +21,17 @@
             </header>
             <div id="inputForm" class="col-lg-6 gx-0 gx-lg-3">
                 <div class="accordion bg-light shadow">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                Textedit
-                            </button>
-                        </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne">
-                            <div class="accordion-body">
-                                <form class="g-3">
+                    <form class="g-3">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Textedit
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne">
+                                <div class="accordion-body">
+
                                     <div class="row">
                                         <div class="col-12">
                                             <label for="formFile" class="form-label w-75">Title</label>
@@ -41,7 +42,7 @@
 
                                     <div class="col-md-4 mt-4 w-75">
                                         <input type="text" v-model="esseTitle" placeholder="例：募集要項"
-                                            class="form-control"></input>
+                                            class="form-control">
                                     </div>
                                     <div class="col-12 mt-2">
                                         <textarea title="essentials" v-model="essentials"
@@ -50,7 +51,7 @@
 
                                     <div class="col-12 mt-4 w-75">
                                         <input type="text" v-model="battleTitle" placeholder="例：古戦場の方針"
-                                            class="form-control"></input>
+                                            class="form-control">
                                     </div>
                                     <div class="col-12 mt-2">
                                         <textarea title="battle" v-model="battle" class="form-control form-control-sm"
@@ -59,7 +60,7 @@
 
                                     <div class="col-12 mt-4 w-75">
                                         <input type="text" v-model="infoTitle" placeholder="例：騎空団概要"
-                                            class="form-control"></input>
+                                            class="form-control">
                                     </div>
                                     <div class="col-12 mt-2">
                                         <textarea title="infomation" v-model="infomation"
@@ -67,8 +68,7 @@
                                     </div>
 
                                     <div class="col-12 mt-4 w-75">
-                                        <input type="text" v-model="etcTitle" placeholder="例：その他"
-                                            class="form-control"></input>
+                                        <input type="text" v-model="etcTitle" placeholder="例：その他" class="form-control">
                                     </div>
                                     <div class="col-12 mt-2">
                                         <textarea title="etc" v-model="etc" class="form-control form-control-sm"
@@ -80,71 +80,71 @@
                                         <textarea title="notice" v-model="notice"
                                             class="mt-2 form-control form-control-sm" rows="5"></textarea>
                                     </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                                Color&amp;Backgroud
-                            </button>
-                        </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo">
-                            <div class="accordion-body">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                    Color&amp;Backgroud
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo">
+                                <div class="accordion-body">
 
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <label for="formFile" class="form-label col-form-label-sm">カラー</label>
-                                        <input type="color" title="color" value="#ffffff" v-model="baseColor"
-                                            class="form-control form-control-sm" @change="bgModify">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <label for="formFile" class="form-label col-form-label-sm">カラー</label>
+                                            <input type="color" title="color" value="#ffffff" v-model="baseColor"
+                                                class="form-control form-control-sm" @change="bgModify">
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <label for="formFile" class="form-label col-form-label-sm">注釈カラー</label>
+                                            <input type="color" title="noticeColor" value="#446699"
+                                                v-model="noticeColor" class="form-control form-control-sm">
+                                        </div>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <label for="formFile" class="form-label col-form-label-sm">注釈カラー</label> <input
-                                            type="color" title="noticeColor" value="#446699" v-model="noticeColor"
-                                            class="form-control form-control-sm">
+
+                                    <div class="row">
+                                        <div class="col-lg-6 mt-2">
+                                            <label for="formFile" class="form-label col-form-label-sm">背景画像</label>
+                                            <input type="file" title="bgModify" accept="image/*"
+                                                class="form-control form-control-sm" ref="bgModify" @change="bgModify">
+                                        </div>
+                                        <div class="col-lg-6 mt-2">
+                                            <label for="formFile" class="form-label col-form-label-sm">背景の透明度</label>
+                                            <input type="range" title="form-range" min="0" max="1" step="0.01"
+                                                v-model.number="configBg.opacity" class="form-range">
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-6 mt-2">
+                                            <label for="formFile" class="form-label col-form-label-sm">フレーム</label>
+                                            <select v-model="configFimg.image.src" aria-label="frameImg"
+                                                class="form-select">
+                                                <option v-for=" image in frameImages" v-bind:value="image.path">
+                                                    {{ image.label }}
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-6 mt-2">
+                                            <label for="formFile"
+                                                class="form-label col-form-label-sm">罫線（ドラッグで上下移動）</label>
+                                            <select v-model="configCimg.image.src" aria-label="centerImg"
+                                                class="form-select">
+                                                <option v-for=" image in centerImages" v-bind:value="image.path">
+                                                    {{ image.label }}
+                                                </option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
-
-                                <div class="row">
-                                    <div class="col-lg-6 mt-2">
-                                        <label for="formFile" class="form-label col-form-label-sm">背景画像</label>
-                                        <input type="file" title="bgModify" accept="image/*"
-                                            class="form-control form-control-sm" ref="bgModify" @change="bgModify">
-                                    </div>
-                                    <div class="col-lg-6 mt-2">
-                                        <label for="formFile" class="form-label col-form-label-sm">背景の透明度</label>
-                                        <input type="range" title="form-range" min="0" max="1" step="0.01"
-                                            v-model.number="configBg.opacity" class="form-range">
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-lg-6 mt-2">
-                                        <label for="formFile" class="form-label col-form-label-sm">フレーム</label>
-                                        <select v-model="configFimg.image.src" aria-label="frameImg"
-                                            class="form-select">
-                                            <option v-for=" image in frameImages" v-bind:value="image.path">
-                                                {{ image.label }}
-                                            </option>
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-6 mt-2">
-                                        <label for="formFile" class="form-label col-form-label-sm">罫線（ドラッグで上下移動）</label>
-                                        <select v-model="configCimg.image.src" aria-label="centerImg"
-                                            class="form-select">
-                                            <option v-for=" image in centerImages" v-bind:value="image.path">
-                                                {{ image.label }}
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
-                                </form>
-
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
                 <div id="buttons" class="row justify-content-center m-4">
                     <button id="save" class="btn btn-primary text-white col-6">画像を保存する</button>
