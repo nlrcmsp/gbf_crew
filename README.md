@@ -1,4 +1,4 @@
-#Granblue Fantasy Crew Recruitment Image Generator
+Granblue Fantasy Crew Recruitment Image Generator
 ---
 
 ## Overview
