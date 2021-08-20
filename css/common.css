@@ -1,0 +1,43 @@
+@charset "UTF-8";
+/*reset*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+/*---------------------------*/
+body {
+  font-family: "M PLUS 1p", "游ゴシック体", "YuGothic", "游ゴシック", "Yu Gothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+  background-color: #e0e0e0;
+}
+
+h1 {
+  font-family: "M PLUS 1p";
+  transform: rotate(0.03deg);
+}
+
+h2 {
+  font-family: "M PLUS 1p";
+}
+
+#inputForm {
+  transform: rotate(0.03deg);
+}
+
+/*for canvas stage fit*/
+#stageParent {
+  max-width: 700px;
+  max-height: 1000px;
+}
+
+@media screen and (max-width: 992px) {
+  #stageParent {
+    max-width: none;
+    max-height: none;
+  }
+}
+/*# sourceMappingURL=common.css.map */
