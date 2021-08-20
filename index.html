@@ -19,9 +19,12 @@
             <header class="p-2">
                 <h1 class="fs-4 text-primary border border-primary bg-light text-center rounded-3 p-2">団員募集画像ジェネレータ</h1>
             </header>
+
+            <!-- Edit Column -->
             <div id="inputForm" class="col-lg-6 gx-0 gx-lg-3">
                 <div class="accordion bg-light shadow">
                     <form class="g-3">
+                        <!-- Text Edit -->
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
@@ -84,6 +87,7 @@
                             </div>
                         </div>
 
+                        <!-- Color Edit Column -->
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
@@ -147,27 +151,44 @@
                     </form>
                 </div>
                 <div id="buttons" class="row justify-content-center m-4">
-                    <button id="save" class="btn btn-primary text-white col-6">画像を保存する</button>
+                    <button id="save" class="btn btn-primary text-white col-6" data-bs-toggle="modal"
+                        data-bs-target="#generateImg">画像を生成</button>
                 </div>
             </div>
 
+            <!-- image Ganerate Modal -->
+            <div class="modal fade" id="generateImg" tabindex="-1" aria-labelledby="generateImgLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <img id="newImg" class="" width="100%">
+                        </div>
+                        <div class="modal-footer">
+                            <p class="modal-title " id="ganerateImgLabel">右クリック、または長押しで保存</p>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- preview Column -->
             <div id="stageParent" class="col-lg-6 gx-0">
-                <div id="preview">
-                    <v-stage ref="stage" :config="configKonva">
-                        <v-layer ref="layer">
-                            <v-image ref="image" :config="{
+                <v-stage ref="stage" :config="configKonva">
+                    <v-layer ref="layer">
+                        <v-image ref="image" :config="{
                             width: 700,
                             height: 1000,
                             fill: '#ffffff',
                             }"></v-image>
-                        </v-layer>
+                    </v-layer>
 
-                        <v-layer ref="layer">
-                            <v-image :config="configBg"></v-image>
-                        </v-layer>
+                    <v-layer ref="layer">
+                        <v-image :config="configBg"></v-image>
+                    </v-layer>
 
-                        <v-layer ref="layer">
-                            <v-rect ref="rect" :config="{
+                    <v-layer ref="layer">
+                        <v-rect ref="rect" :config="{
                             x: 25, y: 150,
                             stroke: '#759',
                             strokeWidth: 0,
@@ -183,7 +204,7 @@
                             cornerRadius: 0
                             }"></v-rect>
 
-                            <v-text :config="{
+                        <v-text :config="{
                             width: 700,
                             height: 150,
                             padding: 15,
@@ -204,7 +225,7 @@
                             fillAfterStrokeEnabled: true,
                             }"></v-text>
 
-                            <v-text :config="{
+                        <v-text :config="{
                             x: 80, y: 215,
                             text: essentials,
                             fontSize: 16,
@@ -217,7 +238,7 @@
                             rotation: 0.03,
                             }"></v-text>
 
-                            <v-text :config="{
+                        <v-text :config="{
                             x: 80, y: 365,
                             text: battle,
                             fontSize: 16,
@@ -230,7 +251,7 @@
                             rotation: 0.03,
                             }"></v-text>
 
-                            <v-text :config="{
+                        <v-text :config="{
                             x: 80, y: 575,
                             text: infomation,
                             fontSize: 16,
@@ -243,7 +264,7 @@
                             rotation: 0.03,
                             }"></v-text>
 
-                            <v-text :config="{
+                        <v-text :config="{
                             x: 80, y: 710,
                             text: etc,
                             fontSize: 16,
@@ -256,7 +277,7 @@
                             rotation: 0.03,
                             }"></v-text>
 
-                            <v-text :config="{
+                        <v-text :config="{
                             x: 80, y: 840,
                             text: notice,
                             fontSize: 16,
@@ -269,7 +290,7 @@
                             rotation: 0.03,
                             }"></v-text>
 
-                            <v-text :config="{
+                        <v-text :config="{
                             x: 100,
                             y: 205,
                             text: esseTitle,
@@ -277,7 +298,7 @@
                             fontFamily: 'Noto Serif JP',
                             fill: baseColor,  
                             }"></v-text>
-                            <v-text :config="{
+                        <v-text :config="{
                             x: 100,
                             y: 355,
                             text: battleTitle,
@@ -285,7 +306,7 @@
                             fontFamily: 'Noto Serif JP',
                             fill: baseColor, 
                             }"></v-text>
-                            <v-text :config="{
+                        <v-text :config="{
                             x: 100,
                             y: 570,
                             text: infoTitle,
@@ -293,7 +314,7 @@
                             fontFamily: 'Noto Serif JP',
                             fill: baseColor,  
                             }"></v-text>
-                            <v-text :config="{
+                        <v-text :config="{
                             x: 100,
                             y: 705,
                             text: etcTitle,
@@ -301,14 +322,14 @@
                             fontFamily: 'Noto Serif JP',
                             fill: baseColor,  
                             }"></v-text>
-                            <v-image :config="configFimg"></v-image>
-                            <v-image :config="configCimg"></v-image>
-                            <v-text :config="infoText"></v-text>
-                        </v-layer>
-                    </v-stage>
-                </div>
+                        <v-image :config="configFimg"></v-image>
+                        <v-image :config="configCimg"></v-image>
+                        <v-text :config="infoText"></v-text>
+                    </v-layer>
+                </v-stage>
+
                 <div class="mt-2 text-end">
-                    <p>Granblue Fantasy Crew Recruitment Image Generator Ver.1.0.0<br>
+                    <p>Granblue Fantasy Crew Recruitment Image Generator Ver.1.0.2<br>
                         Source on <a href="https://github.com/nlrcmsp/gbf_crew" target="blank">Github</a>
                     </p>
                 </div>
@@ -336,6 +357,8 @@
         const app = new Vue({
             el: '#app',
             data: {
+
+                // テキスト初期値
                 mainTitle: '騎空団・団員募集',
                 esseTitle: '募集要項',
                 battleTitle: '古戦場の方針',
@@ -377,7 +400,7 @@
                     fontSize: 12,
                     fontFamily: 'M PLUS 1p',
                     align: 'right',
-                    text: 'Granblue Fantasy Crew Recruitment Image Generator Ver.1.0.0 https://gbf.mints.ne.jp/',
+                    text: 'Granblue Fantasy Crew Recruitment Image Generator Ver.1.0.2 https://gbf.mints.ne.jp/',
                 },
 
                 configFimg: {
@@ -485,7 +508,7 @@
         // get konva stage as 'stage'
         const stage = app.$refs.stage.getStage();
 
-        //ダウンロードボタン
+        //画像生成ボタン
         function downloadURI(uri, name) {
 
             // download given uri as 'name'
@@ -502,7 +525,8 @@
             'click',
             () => {
                 const dataURL = stage.toDataURL({ pixelRatio: 2 });
-                downloadURI(dataURL, 'stage.png');
+                document.getElementById("newImg").src = dataURL;
+                // downloadURI(dataURL, 'stage.png');
             },
         );
 
