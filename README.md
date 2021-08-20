@@ -1,9 +1,9 @@
-# グラブル団員募集画像ジェネレータ
-Granblue Fantasy Crew Recruitment Image Generator
+#Granblue Fantasy Crew Recruitment Image Generator
 ---
 
 ## Description
 ---
+グラブルの騎空団の団員を募集するための画像を生成する何かです。
 
 
 
