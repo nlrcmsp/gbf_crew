@@ -157,11 +157,11 @@
             </div>
 
             <!-- image Ganerate Modal -->
-            <div class="modal fade" id="generateImg" tabindex="-1" aria-labelledby="generateImgLabel"
+            <div class="modal fade g-0" id="generateImg" tabindex="-1" aria-labelledby="generateImgLabel"
                 aria-hidden="true">
-                <div class="modal-dialog modal-lg">
+                <div class="modal-dialog modal-fullscreen-xl-down">
                     <div class="modal-content">
-                        <div class="modal-body">
+                        <div class="modal-body p-0">
                             <img id="newImg" class="" width="100%">
                         </div>
                         <div class="modal-footer">
@@ -384,7 +384,7 @@
                     opacity: 1.0,
                 },
 
-                baseColor: '#5544aa',
+                baseColor: '#0088d6',
                 noticeColor: '#446699',
 
                 configKonva: {
@@ -524,7 +524,7 @@
         document.getElementById('save').addEventListener(
             'click',
             () => {
-                const dataURL = stage.toDataURL({ pixelRatio: 2 });
+                const dataURL = stage.toDataURL({ pixelRatio: 1.5 });
                 document.getElementById("newImg").src = dataURL;
                 // downloadURI(dataURL, 'stage.png');
             },
