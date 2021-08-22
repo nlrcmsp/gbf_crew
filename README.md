@@ -5,6 +5,8 @@ Granblue Fantasy Crew Recruitment Image Generator
 グラブルの騎空団の団員を募集するための画像を生成する何かです。
 
 ### Release Note
+Ver.1.0.3 飾り枠の調整
+
 Ver.1.0.2
 モバイル向けブラウザ用に画像ダウンロード部分をモーダル上で出力に変更
 
