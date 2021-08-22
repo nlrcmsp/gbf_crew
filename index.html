@@ -181,13 +181,9 @@
                             height: 1000,
                             fill: '#ffffff',
                             }"></v-image>
-                    </v-layer>
 
-                    <v-layer ref="layer">
                         <v-image :config="configBg"></v-image>
-                    </v-layer>
-
-                    <v-layer ref="layer">
+                        >
                         <v-rect ref="rect" :config="{
                             x: 25, y: 150,
                             stroke: '#759',
@@ -203,6 +199,8 @@
                             shadowOpacity: 0.2,
                             cornerRadius: 0
                             }"></v-rect>
+
+                        <v-image :config="configFimg"></v-image>
 
                         <v-text :config="{
                             width: 700,
@@ -322,14 +320,14 @@
                             fontFamily: 'Noto Serif JP',
                             fill: baseColor,  
                             }"></v-text>
-                        <v-image :config="configFimg"></v-image>
+
                         <v-image :config="configCimg"></v-image>
                         <v-text :config="infoText"></v-text>
                     </v-layer>
                 </v-stage>
 
                 <div class="mt-2 text-end">
-                    <p>Granblue Fantasy Crew Recruitment Image Generator Ver.1.0.2<br>
+                    <p>Granblue Fantasy Crew Recruitment Image Generator Ver.1.0.3<br>
                         Source on <a href="https://github.com/nlrcmsp/gbf_crew" target="blank">Github</a>
                     </p>
                 </div>
@@ -400,14 +398,14 @@
                     fontSize: 12,
                     fontFamily: 'M PLUS 1p',
                     align: 'right',
-                    text: 'Granblue Fantasy Crew Recruitment Image Generator Ver.1.0.2 https://gbf.mints.ne.jp/',
+                    text: 'Granblue Fantasy Crew Recruitment Image Generator Ver.1.0.3 https://gbf.mints.ne.jp/',
                 },
 
                 configFimg: {
                     image: frameImg,
                     width: 700,
-                    height: 1000,
-                    x: 0, y: 0,
+                    height: 980,
+                    x: -2, y: 10,
                     opacity: 0.3,
                 },
                 frameImages: [
@@ -428,8 +426,8 @@
                 configCimg: {
                     image: centerImg,
                     width: 400,
-                    height: 15,
-                    x: 150, y: 540,
+                    height: 30,
+                    x: 148, y: 540,
                     opacity: 0.3,
                     draggable: true,
                     dragBoundFunc: function (pos) {
@@ -524,7 +522,7 @@
         document.getElementById('save').addEventListener(
             'click',
             () => {
-                const dataURL = stage.toDataURL({ pixelRatio: 1.5 });
+                const dataURL = stage.toDataURL({ pixelRatio: 2.5 });
                 document.getElementById("newImg").src = dataURL;
                 // downloadURI(dataURL, 'stage.png');
             },
