@@ -35,3 +35,6 @@ https://getbootstrap.com/
 
 ## Image Material
 https://www.vectorian.net/
+
+## License
+MIT License
