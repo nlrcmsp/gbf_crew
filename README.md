@@ -20,7 +20,7 @@ Ver.1.0.0
 ## URL
 https://gbf.mints.ne.jp/
 
-## Use Framework & Library
+## Framework & Library
 vue.js
 https://vuejs.org/
 
