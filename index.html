@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Granblue Fantasy Crew Recruitment Image Generator Ver.1.0.3</title>
-    <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
+    <title>Granblue Fantasy Crew Recruitment Image Generator Ver.1.0.4</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&family=M+PLUS+Rounded+1c&family=M+PLUS+1p&family=Reggae+One&display=swap"
+        rel="stylesheet">
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/common.css" rel="stylesheet">
 </head>
@@ -16,7 +17,7 @@
 <body class="">
     <div id="app" class="container justify-content-center">
         <div id="wrapper" class="row">
-            <header class="p-2">
+            <header class="mt-2p-2 mt-2">
                 <h1 class="fs-4 text-primary border border-primary bg-light text-center rounded-3 p-2">団員募集画像ジェネレータ</h1>
             </header>
 
@@ -37,7 +38,16 @@
 
                                     <div class="row">
                                         <div class="col-12">
-                                            <label for="formFile" class="form-label w-75">Title</label>
+                                            <label for="formfile" class="form-label mb-0">Title &amp; Headline
+                                                Font<br>
+                                                （フォントが表示されない場合はテキストを編集すると描画されます）</label>
+                                            <select v-model="fontTitle">
+                                                <option selected>Noto Serif JP</option>
+                                                <option>M PLUS 1p</option>
+                                                <option>M PLUS Rounded 1c</option>
+                                                <option>Reggae One</option>
+                                            </select>
+                                            <label for="formFile" class="form-label w-75 mt-4 mb-0">Title</label>
                                             <input type="text" v-model="mainTitle" placeholder="タイトル（○○団員募集 "
                                                 class="form-control form-control-sm">
                                         </div>
@@ -79,9 +89,9 @@
                                     </div>
 
                                     <div class="col-12 mt-4">
-                                        <label for="formFile" class="form-label">notice</label>
-                                        <textarea title="notice" v-model="notice"
-                                            class="mt-2 form-control form-control-sm" rows="5"></textarea>
+                                        <label for="formFile" class="form-label mb-0">notice</label>
+                                        <textarea title="notice" v-model="notice" class="form-control form-control-sm"
+                                            rows="5"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -183,7 +193,7 @@
                             }"></v-image>
 
                         <v-image :config="configBg"></v-image>
-                        >
+
                         <v-rect ref="rect" :config="{
                             x: 25, y: 150,
                             stroke: '#759',
@@ -202,6 +212,35 @@
 
                         <v-image :config="configFimg"></v-image>
 
+                        //font-prerendering
+                        <v-text :config="{
+                            x: 0,
+                            y: 0,
+                            text: renderFont,
+                            fontSize: 1,
+                            fontFamily: 'M PLUS 1p',
+                            fill: baseColor,
+                            opacity: 0, 
+                            }"></v-text>
+                        <v-text :config="{
+                            x: 0,
+                            y: 0,
+                            text: renderFont,
+                            fontSize: 1,
+                            fontFamily: 'M PLUS Rounded 1c',
+                            fill: baseColor,
+                            opacity: 0, 
+                            }"></v-text>
+                        <v-text :config="{
+                            x: 0,
+                            y: 0,
+                            text: renderFont,
+                            fontSize: 1,
+                            fontFamily: 'Reggae One',
+                            fill: baseColor,
+                            opacity: 0, 
+                            }"></v-text>
+
                         <v-text :config="{
                             width: 700,
                             height: 150,
@@ -209,7 +248,7 @@
                             y: 35,
                             text: mainTitle,
                             fontSize: 42,
-                            fontFamily: 'Noto Serif JP',
+                            fontFamily: fontTitle,
                             fill: baseColor,  
                             align: 'center',
                             lineHeight: 1.15,
@@ -228,7 +267,7 @@
                             text: essentials,
                             fontSize: 16,
                             lineHeight: 1.5,
-                            fontFamily: 'M PLUS 1p',
+                            fontFamily: fontBody,
                             fill: '#000',
                             width: 600,
                             padding: 20,
@@ -241,7 +280,7 @@
                             text: battle,
                             fontSize: 16,
                             lineHeight: 1.5,
-                            fontFamily: 'M PLUS 1p',
+                            fontFamily: fontBody,
                             fill: '#000',
                             width: 600,
                             padding: 20,
@@ -254,7 +293,7 @@
                             text: infomation,
                             fontSize: 16,
                             lineHeight: 1.5,
-                            fontFamily: 'M PLUS 1p',
+                            fontFamily: fontBody,
                             fill: '#000',
                             width: 600,
                             padding: 20,
@@ -267,7 +306,7 @@
                             text: etc,
                             fontSize: 16,
                             lineHeight: 1.5,
-                            fontFamily: 'M PLUS 1p',
+                            fontFamily: fontBody,
                             fill: '#000',
                             width: 600,
                             padding: 20,
@@ -280,7 +319,7 @@
                             text: notice,
                             fontSize: 16,
                             lineHeight: 1.5,
-                            fontFamily: 'M PLUS 1p',
+                            fontFamily: fontBody,
                             fill: noticeColor,
                             width: 600,
                             padding: 20,
@@ -293,7 +332,7 @@
                             y: 205,
                             text: esseTitle,
                             fontSize: 26,
-                            fontFamily: 'Noto Serif JP',
+                            fontFamily: fontTitle,
                             fill: baseColor,  
                             }"></v-text>
                         <v-text :config="{
@@ -301,7 +340,7 @@
                             y: 355,
                             text: battleTitle,
                             fontSize: 26,
-                            fontFamily: 'Noto Serif JP',
+                            fontFamily: fontTitle,
                             fill: baseColor, 
                             }"></v-text>
                         <v-text :config="{
@@ -309,7 +348,7 @@
                             y: 570,
                             text: infoTitle,
                             fontSize: 22,
-                            fontFamily: 'Noto Serif JP',
+                            fontFamily: fontTitle,
                             fill: baseColor,  
                             }"></v-text>
                         <v-text :config="{
@@ -317,7 +356,7 @@
                             y: 705,
                             text: etcTitle,
                             fontSize: 22,
-                            fontFamily: 'Noto Serif JP',
+                            fontFamily: fontTitle,
                             fill: baseColor,  
                             }"></v-text>
 
@@ -327,7 +366,7 @@
                 </v-stage>
 
                 <div class="mt-2 text-end">
-                    <p>Granblue Fantasy Crew Recruitment Image Generator Ver.1.0.3<br>
+                    <p>Granblue Fantasy Crew Recruitment Image Generator Ver.1.0.4<br>
                         Source on <a href="https://github.com/nlrcmsp/gbf_crew" target="blank">Github</a>
                     </p>
                     <p><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
@@ -371,6 +410,9 @@
                 etc: '・ディールは自発者優先\n・ルシH、バブ、ベリアル攻略済、必要な方はキャリー可能\n・一週間ログインなし、古戦場のノルマ未達成時\n　連絡がない場合は強制退団となります',
                 notice: '※入団についてのお問い合わせは、\nTwitterのリプやDMで受け付けています。',
 
+                fontTitle: 'Noto Serif JP',
+                fontBody: 'M PLUS 1p',
+                renderFont: 'グラブル騎空団募集要項古戦場の方針□騎空団概要□その他',
 
                 titleImg: titleImg,
                 frameImg: frameImg,
@@ -401,7 +443,7 @@
                     fontSize: 12,
                     fontFamily: 'M PLUS 1p',
                     align: 'right',
-                    text: 'Granblue Fantasy Crew Recruitment Image Generator Ver.1.0.3 https://gbf.mints.ne.jp/',
+                    text: 'Granblue Fantasy Crew Recruitment Image Generator Ver.1.0.4 https://gbf.mints.ne.jp/',
                 },
 
                 configFimg: {
