@@ -30,12 +30,12 @@ h2 {
 
 /*for canvas stage fit*/
 #stageParent {
-  max-width: 700px;
-  max-height: 1000px;
+  width: 49%;
 }
 
 @media screen and (max-width: 992px) {
   #stageParent {
+    width: 100%;
     max-width: none;
     max-height: none;
   }
