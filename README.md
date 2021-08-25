@@ -10,7 +10,7 @@ Granblue Fantasy Crew Recruitment Image Generator
 
 ### Release Note
 Ver.1.0.4
-- タイトルと見出しのフォント変更
+- タイトルと見出しのフォント変更機能を追加
 - レイアウトの微調整
 
 Ver.1.0.3
